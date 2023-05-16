@@ -8,6 +8,7 @@ const CartItem =(props) =>{
             <div className={classes.picture}>{props.title}</div>
             <div className={classes.picture}>{props.price}</div>
             <div className={classes.picture}>{picture}</div>
+            <button>Add To Cart</button>
         </div>
     )
 

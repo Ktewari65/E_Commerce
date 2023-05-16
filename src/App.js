@@ -3,6 +3,8 @@ import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
 import './App.css';
 import Item from './Components/Item';
 import Footer from './Components/Footer';
+import Modal from './Components/UI/Modal';
+import { useState } from 'react';
 
 
 <script
@@ -10,8 +12,18 @@ import Footer from './Components/Footer';
   crossorigin>
 </script>
 
-
 function App() {
+
+  const[cart,setCart] = useState(false)
+
+  const closeCartHandler =()=>{
+    setCart(false)
+  }
+  const openCartHandler=()=>{
+    setCart(true)
+  }
+   
+
   return (
     <div>
     <Navbar bg='dark' expand='sm' variant='dark'>
@@ -22,11 +34,11 @@ function App() {
       <NavbarBrand>Home</NavbarBrand>
       <NavbarBrand>Store</NavbarBrand> 
       <NavbarBrand>About</NavbarBrand>
-      <button>Cart
+    <button onClick={openCartHandler}>Cart
         <button>
           <span>0</span>
         </button>
-      </button>
+      </button> 
      </Container>
     </Navbar>
     <Navbar bg='secondary'  expand='sm' variant='light'>
@@ -35,6 +47,7 @@ function App() {
     </Container>
     </Navbar>
    <Item/>
+   {cart && <Modal onClick={closeCartHandler}/>}
      <Footer/>
      </div>
    );
