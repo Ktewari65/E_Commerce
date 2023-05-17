@@ -8,6 +8,8 @@ const productsArr = [
     price: 100,
     
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+
+    id:1
     
     },
     
@@ -18,6 +20,8 @@ const productsArr = [
     price: 50,
     
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+
+    id:2
     
     },
     
@@ -28,6 +32,8 @@ const productsArr = [
     price: 70,
     
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+
+    id:3
     
     },
     
@@ -42,18 +48,23 @@ const productsArr = [
     }
     
     ]
-    console.log(productsArr)
+   // console.log(productsArr)
     
     
 const Item  =()=>{
     return (
     <div>
+        <ul>
         {productsArr.map((item)=>
                <CartItem  
+
                title={item.title}
                price={item.price}
-               url={item.imageUrl}/>
+               url={item.imageUrl}
+               id={item.id}/>
+              
         )}
+        </ul>
 
     </div>
     )

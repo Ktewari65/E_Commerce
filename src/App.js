@@ -1,10 +1,11 @@
-//import { Button } from 'react-bootstrap';
-import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
+//import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
 import './App.css';
-import Item from './Components/Item';
-import Footer from './Components/Footer';
+import Item from './Components/Cart/Item';
+import Footer from './Components/UI/Footer';
 import Modal from './Components/UI/Modal';
 import { useState } from 'react';
+import Header from './Components/UI/Header';
+import AuthProvider from './Store/AuthProvider';
 
 
 <script
@@ -17,6 +18,7 @@ function App() {
   const[cart,setCart] = useState(false)
 
   const closeCartHandler =()=>{
+   // console.log('closeCartHandler')
     setCart(false)
   }
   const openCartHandler=()=>{
@@ -25,31 +27,12 @@ function App() {
    
 
   return (
-    <div>
-    <Navbar bg='dark' expand='sm' variant='dark'>
-     <Container>
-      <NavbarBrand>E_Commerce</NavbarBrand>
-     
-      <Nav className="me-auto"></Nav>
-      <NavbarBrand>Home</NavbarBrand>
-      <NavbarBrand>Store</NavbarBrand> 
-      <NavbarBrand>About</NavbarBrand>
-    <button onClick={openCartHandler}>Cart
-        <button>
-          <span>0</span>
-        </button>
-      </button> 
-     </Container>
-    </Navbar>
-    <Navbar bg='secondary'  expand='sm' variant='light'>
-    <Container>
-      <h1>The Generic</h1>
-    </Container>
-    </Navbar>
+    <AuthProvider>
+    <Header onClick={openCartHandler}/>
    <Item/>
-   {cart && <Modal onClick={closeCartHandler}/>}
+   {cart &&<Modal onClick={closeCartHandler}/>}
      <Footer/>
-     </div>
+     </AuthProvider>
    );
 }
 
