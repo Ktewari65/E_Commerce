@@ -1,17 +1,19 @@
 import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
 import React from "react";
-import Authcontext from '../../Store/Authcontext';
-import { useContext } from 'react';
+import Button from './Button';
+//import Authcontext from '../../Store/Authcontext';
+//import { useContext } from 'react';
+//import { Link } from 'react-router-dom';
 const Header = (props) =>{
 
-  const ctx = useContext(Authcontext)
-  var quantity=0;
+ // const ctx = useContext(Authcontext)
+  //var quantity=0;
    // console.log(ctx)
 
-        ctx.items.forEach((item) =>{
+    //    ctx.items.forEach((item) =>{
          // console.log(item.quantity)
-            quantity=  quantity + Number(item.quantity)
-        })
+        //    quantity=  quantity + Number(item.quantity)
+      //  })
     
 return (
     <div>
@@ -22,13 +24,10 @@ return (
       <Nav className="me-auto"></Nav>
       <NavbarBrand>Home</NavbarBrand>
       <NavbarBrand>Store</NavbarBrand> 
-      <NavbarBrand>About</NavbarBrand>
-    <button onClick={props.onClick}>Cart
-        <button>
-          <span>{quantity}</span>
-          
-        </button>
-      </button> 
+      <NavbarBrand> 
+            <a href="/about">About</a>
+        </NavbarBrand>
+      <Button onClick={props.onClick}/>
      </Container>
     </Navbar>
     <Navbar bg='secondary'  expand='sm' variant='light'>

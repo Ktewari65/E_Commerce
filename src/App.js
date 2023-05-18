@@ -1,4 +1,4 @@
-//import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
+//import ErrorFallback from './Components/Routes/ErrorFallback';
 import './App.css';
 import Item from './Components/Cart/Item';
 import Footer from './Components/UI/Footer';
@@ -6,6 +6,9 @@ import Modal from './Components/UI/Modal';
 import { useState } from 'react';
 import Header from './Components/UI/Header';
 import AuthProvider from './Store/AuthProvider';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import About from './Components/Routes/About';
+//import { ErrorBoundary } from 'react-error-boundary';
 
 
 <script
@@ -14,8 +17,12 @@ import AuthProvider from './Store/AuthProvider';
 </script>
 
 function App() {
+const[cart,setCart] = useState(false)
 
-  const[cart,setCart] = useState(false)
+const router = createBrowserRouter([
+  {path:'/about', element: <About/>},
+  {path:'/' ,  element:<App/>}
+]) 
 
   const closeCartHandler =()=>{
    // console.log('closeCartHandler')
@@ -27,12 +34,15 @@ function App() {
    
 
   return (
-    <AuthProvider>
+    <div>
+      <RouterProvider  router={router}/>
+       <AuthProvider>
     <Header onClick={openCartHandler}/>
    <Item/>
    {cart &&<Modal onClick={closeCartHandler}/>}
      <Footer/>
      </AuthProvider>
+     </div>
    );
 }
 
