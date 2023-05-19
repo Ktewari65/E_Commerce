@@ -1,28 +1,33 @@
-//import ErrorFallback from './Components/Routes/ErrorFallback';
 import './App.css';
-import Item from './Components/Cart/Item';
 import Footer from './Components/UI/Footer';
 import Modal from './Components/UI/Modal';
-import { useState } from 'react';
 import Header from './Components/UI/Header';
-import AuthProvider from './Store/AuthProvider';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import About from './Components/Routes/About';
-//import { ErrorBoundary } from 'react-error-boundary';
+import Home from './Components/Routes/Home';
+import Store from './Components/Routes/Store';
+//import { RouterProvider } from 'react-router-dom';
+//import { createBrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
+//import RootLayout from './Components/Routes/RootLayout';
+import { Route, Routes } from 'react-router-dom';
 
-
-<script
+/* <script
   src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
   crossorigin>
-</script>
+</script> */
 
 function App() {
 const[cart,setCart] = useState(false)
 
-const router = createBrowserRouter([
-  {path:'/about', element: <About/>},
-  {path:'/' ,  element:<App/>}
-]) 
+// const router = createBrowserRouter([
+//   {path:'/' ,  element:<RootLayout/>,
+//   children:[
+//     {path:'/' ,  element:<Store/>,},
+//   {path:'/about', element: <About/>},
+//    { path:'/home' , element:<Home/>}
+//   ]
+// }
+// ]) 
 
   const closeCartHandler =()=>{
    // console.log('closeCartHandler')
@@ -34,15 +39,26 @@ const router = createBrowserRouter([
    
 
   return (
-    <div>
-      <RouterProvider  router={router}/>
-       <AuthProvider>
-    <Header onClick={openCartHandler}/>
-   <Item/>
-   {cart &&<Modal onClick={closeCartHandler}/>}
-     <Footer/>
-     </AuthProvider>
-     </div>
+    
+      <div>
+
+       <Header onClick={openCartHandler}/>  
+        <Routes> 
+       <Route  path='/'   element={<Store/>}/>
+        <Route  path='/about' element={<About/>}/>
+        <Route path='/home'  element={<Home/>}/>
+        </Routes>  
+       {/* <RouterProvider  router={router}/> */}
+       {/* <Header onClick={openCartHandler}/>   */}
+       {/* <Item/>*/}
+       {/* <Item/> */}
+       {cart &&<Modal onClick={closeCartHandler}/>} 
+       <Footer/>
+         </div> 
+    
+     
+     
+  
    );
 }
 

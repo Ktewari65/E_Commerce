@@ -1,9 +1,10 @@
 import { Navbar,Container } from "react-bootstrap"
 import React from "react"
 import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import classes from './Footer.module.css'
 const Footer = ()=>{
 return(
-    <div>
+    <div className={classes.footer}>
        <Navbar bg='info'  expand='sm' variant='light'>
     <Container>
       <h1>The Generic</h1>

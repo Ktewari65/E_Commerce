@@ -1,9 +1,10 @@
 import { Container, Navbar, NavbarBrand ,Nav} from 'react-bootstrap';
 import React from "react";
 import Button from './Button';
+import classes from './Header.module.css'
 //import Authcontext from '../../Store/Authcontext';
 //import { useContext } from 'react';
-//import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 const Header = (props) =>{
 
  // const ctx = useContext(Authcontext)
@@ -22,17 +23,17 @@ return (
       <NavbarBrand>E_Commerce</NavbarBrand>
      
       <Nav className="me-auto"></Nav>
-      <NavbarBrand>Home</NavbarBrand>
-      <NavbarBrand>Store</NavbarBrand> 
-      <NavbarBrand> 
-            <a href="/about">About</a>
+     <NavbarBrand><NavLink to='/home'>Home</NavLink></NavbarBrand>
+      <NavbarBrand><NavLink to='/'>Store</NavLink></NavbarBrand> 
+<NavbarBrand> 
+            <NavLink to="/about">About</NavLink>
         </NavbarBrand>
       <Button onClick={props.onClick}/>
      </Container>
     </Navbar>
     <Navbar bg='secondary'  expand='sm' variant='light'>
     <Container>
-      <h1>The Generic</h1>
+      <h1 className={classes.center}>The Generic</h1>
     </Container>
     </Navbar>
     </div>
