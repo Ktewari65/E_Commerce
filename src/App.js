@@ -5,6 +5,7 @@ import Header from './Components/UI/Header';
 import About from './Components/Routes/About';
 import Home from './Components/Routes/Home';
 import Store from './Components/Routes/Store';
+import Contact from './Components/Routes/Contact';
 //import { RouterProvider } from 'react-router-dom';
 //import { createBrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
@@ -47,6 +48,7 @@ const[cart,setCart] = useState(false)
        <Route  path='/'   element={<Store/>}/>
         <Route  path='/about' element={<About/>}/>
         <Route path='/home'  element={<Home/>}/>
+        <Route  path='/contactus' element={<Contact/>}/>
         </Routes>  
        {/* <RouterProvider  router={router}/> */}
        {/* <Header onClick={openCartHandler}/>   */}

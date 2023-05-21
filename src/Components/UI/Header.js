@@ -27,6 +27,9 @@ return (
       <NavbarBrand><NavLink to='/'>Store</NavLink></NavbarBrand> 
 <NavbarBrand> 
             <NavLink to="/about">About</NavLink>
+            
+          <NavbarBrand> <NavLink to="/contactus">Contact</NavLink></NavbarBrand>
+            
         </NavbarBrand>
       <Button onClick={props.onClick}/>
      </Container>
