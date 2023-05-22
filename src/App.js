@@ -6,6 +6,7 @@ import About from './Components/Routes/About';
 import Home from './Components/Routes/Home';
 import Store from './Components/Routes/Store';
 import Contact from './Components/Routes/Contact';
+import StoreDetails from './Components/Routes/StoreDetails';
 //import { RouterProvider } from 'react-router-dom';
 //import { createBrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
@@ -46,6 +47,7 @@ const[cart,setCart] = useState(false)
        <Header onClick={openCartHandler}/>  
         <Routes> 
        <Route  path='/'   element={<Store/>}/>
+       <Route  path='/:productId'  element={ <StoreDetails/> }/>
         <Route  path='/about' element={<About/>}/>
         <Route path='/home'  element={<Home/>}/>
         <Route  path='/contactus' element={<Contact/>}/>

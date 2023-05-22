@@ -44,6 +44,8 @@ const productsArr = [
     price: 100,
     
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+
+    id:4
     
     }
     
@@ -55,9 +57,9 @@ const Item  =()=>{
     return (
     <div>
         <ul>
-        {productsArr.map((item)=>
+        {productsArr.map((item, index)=>
                <CartItem  
-
+               key={index}
                title={item.title}
                price={item.price}
                url={item.imageUrl}

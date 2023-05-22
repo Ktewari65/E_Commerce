@@ -4,7 +4,7 @@ const AuthProvider = (props)=>{
     const[add, setAddItems] = useState([])
 
     const addItemHandler =(item)=>{
-       // console.log(item)
+        console.log(item)
      setAddItems((previous) =>{
       //  console.log(previous)
         return [...previous, item]
