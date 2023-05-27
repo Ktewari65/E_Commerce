@@ -1,12 +1,16 @@
 import React, { useState } from "react"
 import Authcontext from "./Authcontext"
+import { useNavigate } from "react-router-dom"
 const AuthProvider = (props)=>{
+    const navigate = useNavigate()
     const[add, setAddItems] = useState([])
-
+    const[token,setToken]= useState(null)
+    const isLoggedIn= !!token
+    //console.log(isLoggedIn)
+    
     const addItemHandler =(item)=>{
-        console.log(item)
+        
      setAddItems((previous) =>{
-      //  console.log(previous)
         return [...previous, item]
      })
     }
@@ -15,12 +19,31 @@ const AuthProvider = (props)=>{
 
     }
 
+    const loginHandler= (token) =>{
+        console.log(token)
+       setToken(token)
+      }
 
-    const cartItems={
+      const logoutHandler = ()=>{
+     
+      setToken(null)
+      
+      }
+
+      setTimeout(() =>{
+        console.log('Logeed Out')
+        setToken(null)
+        navigate('/login')
+      },20000)
+
+        const cartItems={
         items:add,
         addItem: addItemHandler,
         deleteItem: deleteItemHandler,
-        message:'Products'
+        isLogin:loginHandler,
+        isLogOut:logoutHandler,
+        token:token,
+        isLoggedIn:isLoggedIn
     }
 return(
     <Authcontext.Provider  value={cartItems}>

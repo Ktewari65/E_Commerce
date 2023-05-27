@@ -9,9 +9,11 @@ import Contact from './Components/Routes/Contact';
 import StoreDetails from './Components/Routes/StoreDetails';
 //import { RouterProvider } from 'react-router-dom';
 //import { createBrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
+import {  useState } from 'react';
 //import RootLayout from './Components/Routes/RootLayout';
 import { Route, Routes } from 'react-router-dom';
+import Login from './Components/Routes/Login';
+
 
 /* <script
   src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
@@ -19,7 +21,9 @@ import { Route, Routes } from 'react-router-dom';
 </script> */
 
 function App() {
+  
 const[cart,setCart] = useState(false)
+//console.log(authCtx.isLoggedIn)
 
 // const router = createBrowserRouter([
 //   {path:'/' ,  element:<RootLayout/>,
@@ -47,10 +51,13 @@ const[cart,setCart] = useState(false)
        <Header onClick={openCartHandler}/>  
         <Routes> 
        <Route  path='/'   element={<Store/>}/>
-       <Route  path='/:productId'  element={ <StoreDetails/> }/>
+       <Route path='/login'  element={<Login/>}/>
+        <Route  path='/:productId'  element={ <StoreDetails/> }/>
         <Route  path='/about' element={<About/>}/>
-        <Route path='/home'  element={<Home/>}/>
-        <Route  path='/contactus' element={<Contact/>}/>
+       
+         <Route path='/home'  element={<Home/>}/>
+       <Route  path='/contactus' element={<Contact/>}/>
+      
         </Routes>  
        {/* <RouterProvider  router={router}/> */}
        {/* <Header onClick={openCartHandler}/>   */}
