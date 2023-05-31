@@ -8,18 +8,18 @@ import { Link } from "react-router-dom";
 //import Cart from "../Modal/Cart";
 
 const CartItem =(props) =>{
-    //const ctx = useContext(Authcontext)
-  //  console.log(props.id)
+  
     const picture =<img src={props.url}  alt='img'></img>
-   // const quantity= document.getElementById('quantity')
-   // console.log(quantity)
+   
+   
+  // console.log(props.id)
     return (
-        <div>
-            <form className={classes.form}>
-       <Link to = {`/${props.id}`}> <div className={classes.picture}> {props.title}</div></Link> 
+        <div className={classes.newsbox}>
+             <form   className={classes.form}>                        {/*  className={classes.form} */}
+            <Link to = {`/${props.id}`}> <div className={classes.newsbox}> {props.title}</div></Link> 
       
-            <div className={classes.picture}>{props.price}</div>
-            <div className={classes.picture}>{picture}</div>
+            <div className={classes.newsbox}>{props.price}</div>
+            <div className={classes.newsbox}>{picture}</div>
             <CartItemForm  item={props} />
             
             </form>

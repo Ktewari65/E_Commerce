@@ -1,10 +1,14 @@
 import { Navbar,Container } from "react-bootstrap"
-import React from "react"
+import React, { useContext } from "react"
 import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import classes from './Footer.module.css'
+import Authcontext from "../../Store/Authcontext";
 const Footer = ()=>{
+
+  const authCtx = useContext(Authcontext)
 return(
-    <div className={classes.footer}>
+  <div>
+    {authCtx.isLoggedIn && <div   className={classes.footers}>
        <Navbar bg='info'  expand='sm' variant='light'>
     <Container>
       <h1>The Generic</h1>
@@ -21,6 +25,7 @@ return(
       </MDBBtn>
     </Container>
     </Navbar>
+    </div> }
     </div>
 )
 }

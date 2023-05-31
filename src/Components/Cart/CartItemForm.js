@@ -10,6 +10,7 @@ const CartItemForm = (props) =>{
  const addToCart =(event)=>{
    event.preventDefault()
    const quantity = document.getElementById('amount' +props.id).value
+   //console.log(quantity)
    ctx.addItem({...props.item, quantity: quantity})
  }
     return(

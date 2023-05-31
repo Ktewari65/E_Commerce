@@ -23,11 +23,12 @@ const Header = (props) =>{
         ctx.isLogOut()
       }
     
+    
 return (
     <div>
          <Navbar bg='dark' expand='sm' variant='dark'>
      <Container>
-     {ctx.isLoggedIn && <NavbarBrand>E_Commerce</NavbarBrand>}
+     {ctx.isLoggedIn && <NavbarBrand className={classes.center}><h2>Shop In</h2></NavbarBrand>}
      
       <Nav className="me-auto"></Nav>
     {ctx.isLoggedIn &&<NavbarBrand><NavLink to='/home'>Home</NavLink></NavbarBrand>}
@@ -39,12 +40,12 @@ return (
             <NavbarBrand><NavLink to = "/login"><button onClick={logoutHandler}>{ctx.isLoggedIn ? 'Logout' : 'Login'}</button></NavLink></NavbarBrand>
             
         </NavbarBrand>
-        {ctx.isLoggedIn &&<Button onClick={props.onClick}/>}
+        {ctx.isLoggedIn &&<Button  items={props.items} onClick={props.onClick}/>}
      </Container>
     </Navbar>
     <Navbar bg='secondary'  expand='sm' variant='light'>
     <Container>
-    {ctx.isLoggedIn &&<h1 className={classes.center}>The Generic</h1>}
+    {ctx.isLoggedIn &&<h1 className={classes.generic}>The Generic</h1>}
     </Container>
     </Navbar>
     </div>
